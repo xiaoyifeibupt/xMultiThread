@@ -1,0 +1,1 @@
+g++ -std=c++11 -pthread test_xThread.cpp ../xThread.h ../xThread.cpp

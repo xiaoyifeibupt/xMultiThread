@@ -4,6 +4,7 @@
 #include "Condition.h"
 #include "Mutex.h"
 #include "Thread.h"
+#include "noncopyable.h"
 
 #include <functional>
 #include <memory>
@@ -13,7 +14,7 @@
 
 namespace xMultiThread {
 
-	class ThreadPool {
+	class ThreadPool : noncopyable {
 		public:
 			typedef std::function<void ()> Task;
 
@@ -26,9 +27,6 @@ namespace xMultiThread {
 			void run(const Task& f);
 
 		private:
-
-			xThreadPool(const xThreadPool&) = delete;
-			xThreadPool& operator=(const xThreadPool&) = delete;
 
 			void runInThread();
 			Task take();

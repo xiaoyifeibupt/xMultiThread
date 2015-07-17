@@ -1,13 +1,15 @@
 #ifndef XTHREAD_H
 #define XTHREAD_H
 
+#include "noncopyable.h"
+
 #include <pthread.h>
 #include <functional>
 #include <memory>
 
 namespace xMultiThread {
 
-	class xThread {
+	class xThread : noncopyable {
 		public:
 			typedef std::function<void ()> ThreadFunc;
 
@@ -25,8 +27,7 @@ namespace xMultiThread {
 			const std::string& name() const { return name_; }
 
 		private:
-			xThread(const xThread&) = delete;
-			xThread& operator=(const xThread&) = delete;
+
 			bool        started_;
 			bool        joined_;
 			pthread_t   pthreadId_;

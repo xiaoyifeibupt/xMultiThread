@@ -9,7 +9,7 @@
 namespace xMultiThread {
 
 	namespace CurrentThread {
-	__thread const char* t_threadName = "unknown";
+		__thread const char* t_threadName = "unknown";
 	}
 }
 

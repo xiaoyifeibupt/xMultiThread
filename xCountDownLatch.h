@@ -4,7 +4,7 @@
 #include "xMutex.h"
 #include "xCondition.h"
 
-namespace xMultiThread {
+namespace xMultiThread : noncopyable {
 
 	class xCountDownLatch {
 		public:
@@ -36,9 +36,6 @@ namespace xMultiThread {
 			}
 
 		private:
-
-			xCountDownLatch(const xCountDownLatch&) = delete;
-			xCountDownLatch& operator=(const xCountDownLatch&) = delete;
 			
 			mutable xMutexLock mutex_;
 			xCondition condition_;

@@ -10,7 +10,7 @@
 namespace xMultiThread {
 
 template<typename T>
-class xBlockingQueue {
+class xBlockingQueue : noncopyable {
 	public:
 		xBlockingQueue()
 			: mutex_(),
@@ -43,9 +43,6 @@ class xBlockingQueue {
 		}
 
 	private:
-
-		xBlockingQueue(const xBlockingQueue&) = delete;
-		xBlockingQueue& operator=(const xBlockingQueue&) = delete;
 
 		mutable xMutexLock mutex_;
 		xCondition         notEmpty_;
